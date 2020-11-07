@@ -68,14 +68,17 @@ def fill_clusters():
 
         clusters[min_index - 1].append(i)
 
+count = 0
 while(True):
     fill_clusters()
     old_centers = centers.copy()
     new_centers = get_average(clusters)
     centers = new_centers
+    if old_centers == new_centers:
+        print("Count of iterations: ", count)
+        break
     print(new_centers)
     print(old_centers)
     print(clusters)
     show_result()
-    if old_centers == new_centers:
-        break
+    count = count + 1
