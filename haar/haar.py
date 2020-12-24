@@ -10,8 +10,8 @@ for file in os.listdir('/Users/guzelsarafutdinova/Desktop'):
     if file_extension == '.jpg':
         image = cv.imread('/Users/guzelsarafutdinova/Desktop/' + file)
         faces = face_cascade.detectMultiScale(image)
-        for (x, y, width, height) in faces:
-            x2, y2 = x + width, y + height
+        for (x, y, w, h) in faces:
+            x2, y2 = x + w, y + h
             cv.rectangle(image, (x, y), (x2, y2), green, 2)
         cv.imshow("Face", image)
         cv.waitKey(0)
